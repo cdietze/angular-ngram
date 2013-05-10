@@ -2,23 +2,49 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
-  <link rel="stylesheet" href="css/app.css"/>
+  <title>n-gram Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="css/app.css" rel="stylesheet">
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body ng-controller="NgramController">
 
-  <div ng-view></div>
+  <div class="container-header">
+      <h1><em>n</em>-gram Demo</h1>
+  </div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+      </div>
+      <div class="span10">
+        <h2>Input words</h2>
+        <div class="well">
+          <span class="ngramword" ng-repeat="word in inputWords">{{word}}
+            <span class="remove-word-icon" ng-click="removeWord(word)">&times;</span>
+          </span>
+          <br>
+          <form class="form-inline" ng-submit="addWord()">
+            <span class="input-append">
+              <input type="text" class="input-large" ng-model="wordToAdd" placeholder="Add word...">
+              <input type="submit" class="btn btn-primary" value="Add">
+            </span>
+          </form>
+        </div>
+        <h2>Output words</h2>
+        <div class="well">
+          <span class="ngramword" ng-repeat="word in outputWords">
+            {{word}}
+          </span>
+        </div>
+        <button class="btn btn-primary"><i class="icon-white icon-refresh"></i> Refresh</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  -->
-  <script src="lib/angular/angular.js"></script>
+  <script src="lib/jquery-2.0.0.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
