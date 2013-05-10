@@ -18,19 +18,20 @@
       <div class="span2">
       </div>
       <div class="span10">
+
         <h2>Input words</h2>
         <div class="well">
           <span class="ngramword" ng-repeat="word in inputWords">{{word}}
             <span class="remove-word-icon" ng-click="removeWord(word)">&times;</span>
           </span>
-          <br>
-          <form class="form-inline" ng-submit="addWord()">
-            <span class="input-append">
-              <input type="text" class="input-large" ng-model="wordToAdd" placeholder="Add word...">
-              <input type="submit" class="btn btn-primary" value="Add">
-            </span>
-          </form>
         </div>
+        <form class="form-inline" ng-submit="addWord()">
+          <span class="input-append">
+            <input type="text" class="input-large" ng-model="wordToAdd" placeholder="Add word...">
+            <input type="submit" class="btn btn-primary" value="Add">
+          </span>
+        </form>
+
         <h2>Output words</h2>
         <div class="well">
           <span class="ngramword" ng-repeat="word in outputWords">
