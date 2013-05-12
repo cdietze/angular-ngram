@@ -4,11 +4,6 @@ function NgramController($scope, $http) {
 	$scope.inputWords = "";
 	$scope.wordToAdd = "";
 
-	$http.get('data/games.json').success(function(data) {
-		$scope.inputWords = data;
-		$scope.updateOutput();
-	});
-
 	$scope.addWord = function() {
 		if($scope.wordToAdd === "") return;
 		if($.inArray($scope.wordToAdd, $scope.inputWords) != -1) return;
@@ -28,6 +23,13 @@ function NgramController($scope, $http) {
 		$scope.updateOutput();
 	}
 
+	$scope.loadInputWords = function(name) {
+		$http.get('data/' + name + '.json').success(function(data) {
+			$scope.inputWords = data;
+			$scope.updateOutput();
+		});
+	}
+
 	$scope.updateOutput = function() {
 		var dict = new NGramDict();
 		$.map($scope.inputWords, function(word) {
@@ -41,7 +43,7 @@ function NgramController($scope, $http) {
 		}
 	}
 
-	$scope.updateOutput();
+	$scope.loadInputWords("games");
 }
 
 
