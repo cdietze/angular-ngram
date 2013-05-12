@@ -9,7 +9,7 @@
 </head>
 <body ng-controller="NgramController">
 
-  <div class="container-header">
+  <div class="ngram-headline">
       <h1><em>n</em>-gram Demo</h1>
   </div>
 
@@ -19,25 +19,25 @@
       </div>
       <div class="span10">
 
-        <h2>Input words</h2>
-        <div class="well">
-          <span class="ngramword" ng-repeat="word in inputWords">{{word}}
-            <span class="remove-word-icon" ng-click="removeWord(word)">&times;</span>
+        <div class="well ngram-word-container">
+          <span class="ngram-word-container-title">Input</span>
+          <span class="ngram-word-item" ng-repeat="word in inputWords">{{word}}
+            <span class="ngram-remove-word-icon" ng-click="removeWord(word)">&times;</span>
           </span>
-        </div>
         <form class="form-inline" ng-submit="addWord()">
           <span class="input-append">
             <input type="text" class="input-large" ng-model="wordToAdd" placeholder="Add word...">
             <input type="submit" class="btn btn-primary" value="Add">
           </span>
         </form>
+        </div>
 
-        <h2>Output words</h2>
-        <button class="btn btn-primary" ng-click="updateOutput()"><i class="icon-white icon-refresh"></i> Do it again!</button><br><br>
-        <div class="well">
-          <span class="ngramword" ng-repeat="word in outputWords">
+        <div class="well ngram-word-container">
+          <span class="ngram-word-container-title">Result</span>
+          <span class="ngram-word-item" ng-repeat="word in outputWords">
             {{word}}
           </span>
+          <button class="btn btn-primary pull-right" ng-click="updateOutput()"><i class="icon-white icon-refresh"></i> Refresh</button>
         </div>
       </div>
     </div>
