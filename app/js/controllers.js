@@ -21,14 +21,22 @@ function NgramController($scope) {
 		$scope.updateOutput();
 	}
 
+	$scope.clear = function() {
+		$scope.inputWords = [];
+		$scope.updateOutput();
+	}
+
 	$scope.updateOutput = function() {
 		var dict = new NGramDict();
 		$.map($scope.inputWords, function(word) {
 			dict.learn(word);
 		});
 		$scope.outputWords = [];
-		for(var i=0;i<50;i++)
-			$scope.outputWords.push(dict.generate());
+		if($scope.inputWords.length > 0) {
+			for(var i=0;i<50;i++) {
+				$scope.outputWords.push(dict.generate());
+			}
+		}
 	}
 
 	$scope.updateOutput();

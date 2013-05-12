@@ -24,12 +24,13 @@
           <span class="ngram-word-item" ng-repeat="word in inputWords">{{word}}
             <span class="ngram-remove-word-icon" ng-click="removeWord(word)">&times;</span>
           </span>
-        <form class="form-inline" ng-submit="addWord()">
-          <span class="input-append">
-            <input type="text" class="input-large" ng-model="wordToAdd" placeholder="Add word...">
-            <input type="submit" class="btn btn-primary" value="Add">
-          </span>
-        </form>
+          <form class="form-inline" ng-submit="addWord()">
+            <span class="input-append">
+              <input type="text" class="input-large" ng-model="wordToAdd" placeholder="Add word...">
+              <input type="submit" class="btn btn-primary" value="Add">
+            </span>
+              <a class="btn btn-primary" href="#" ng-click="clear()"><i class="icon-trash icon-white"></i> Clear</a>
+          </form>
         </div>
 
         <div class="well ngram-word-container">
