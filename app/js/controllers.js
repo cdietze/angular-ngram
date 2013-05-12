@@ -1,11 +1,13 @@
 'use strict';
 
-function NgramController($scope) {
-	$scope.inputWords = ["Pac-Man", "Tetris: The Soviet Mind Game", "Mario Bros.", "Donkey Kong", "Dig Dug", "Super Mario Kart", "Galaga",
-	"The Legend of Zelda: Ocarina of Time", "Doom", "Space Invaders", "Paperboy", "Mortal Kombat", "Street Fighter", "Super Mario Bros.", "Contra",
-	"Gauntlet", "Frogger", "Defender", "Pole Position", "Double Dragon", "NBA Jam", "Super Smash Bros.", "Pokemon Red and Blue", "Resident Evil",
-	"Ultima VII", "Zaxxon", "Gorf"];
+function NgramController($scope, $http) {
+	$scope.inputWords = "";
 	$scope.wordToAdd = "";
+
+	$http.get('data/games.json').success(function(data) {
+		$scope.inputWords = data;
+		$scope.updateOutput();
+	});
 
 	$scope.addWord = function() {
 		if($scope.wordToAdd === "") return;
