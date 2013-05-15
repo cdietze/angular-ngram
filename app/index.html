@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>n-gram Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="css/app.css" rel="stylesheet">
+</head>
+<body ng-controller="NgramController">
+
+  <div class="ngram-headline">
+      <h1><em>n</em>-gram Demo</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2 well well-small">
+        <span class="ngram-word-container-title">Examples</span>
+        <p><a href="#" class="btn btn-block" ng-click="loadInputWords('games')">Video Games</a></p>
+        <p><a href="#" class="btn btn-block" ng-click="loadInputWords('frauen-vornamen-1900')">Frauen Vornamen 1900</a></p>
+        <p><a href="#" class="btn btn-block" ng-click="loadInputWords('maenner-vornamen-1900')">Männer Vornamen 1900</a></p>
+        <p><a href="#" class="btn btn-block" ng-click="loadInputWords('metal-bands')">Metal Bands</a></p>
+      </div>
+      
+      <div class="span10">
+
+        <div class="well well-small ngram-word-container">
+          <span class="ngram-word-container-title">Input</span>
+          <span class="ngram-word-item" ng-repeat="word in inputWords">{{word}}
+            <span class="ngram-remove-word-icon" ng-click="removeWord(word)">&times;</span>
+          </span>
+          <form class="form-inline" ng-submit="addWord()">
+            <span class="input-append">
+              <input type="text" class="input-large" ng-model="wordToAdd" placeholder="Add word...">
+              <input type="submit" class="btn btn-primary" value="Add">
+            </span>
+              <a class="btn btn-primary" href="#" ng-click="clear()"><i class="icon-trash icon-white"></i> Clear</a>
+          </form>
+        </div>
+
+        <div class="well well-small ngram-word-container">
+          <span class="ngram-word-container-title">Result</span>
+          <span class="ngram-word-item" ng-repeat="word in outputWords">
+            {{word}}
+          </span>
+          <button class="btn btn-primary pull-right" ng-click="updateOutput()"><i class="icon-white icon-refresh"></i> Refresh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/jquery-2.0.0.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>
