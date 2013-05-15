@@ -15,8 +15,8 @@
 
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="span2">
-        <p>Examples</p>
+      <div class="span2 well well-small">
+        <span class="ngram-word-container-title">Examples</span>
         <p><a href="#" class="btn btn-block" ng-click="loadInputWords('games')">Video Games</a></p>
         <p><a href="#" class="btn btn-block" ng-click="loadInputWords('frauen-vornamen-1900')">Frauen Vornamen 1900</a></p>
         <p><a href="#" class="btn btn-block" ng-click="loadInputWords('maenner-vornamen-1900')">Männer Vornamen 1900</a></p>
@@ -25,7 +25,7 @@
       
       <div class="span10">
 
-        <div class="well ngram-word-container">
+        <div class="well well-small ngram-word-container">
           <span class="ngram-word-container-title">Input</span>
           <span class="ngram-word-item" ng-repeat="word in inputWords">{{word}}
             <span class="ngram-remove-word-icon" ng-click="removeWord(word)">&times;</span>
@@ -39,7 +39,7 @@
           </form>
         </div>
 
-        <div class="well ngram-word-container">
+        <div class="well well-small ngram-word-container">
           <span class="ngram-word-container-title">Result</span>
           <span class="ngram-word-item" ng-repeat="word in outputWords">
             {{word}}
